@@ -1,0 +1,27 @@
+<div class="productScrollerContainer">
+  <h3>Filter for You</h3>
+  <div class="producScrollerWrapper">
+    <!-- <app-single-scroller-product></app-single-scroller-product> -->
+    <ngx-slick-carousel
+      class="carousel"
+      #slickModal="slick-carousel"
+      [config]="slideConfig"
+      (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)"
+      (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)"
+    >
+      <ng-container>
+        @for (slide of slides; track slide.img[0]) {
+        <div ngxSlickItem class="slide">
+          <app-single-scroller-product
+            [img]="slide.img[0]"
+            [title]="slide.title"
+            [price]="slide.price"
+          ></app-single-scroller-product>
+        </div>
+        }
+      </ng-container>
+    </ngx-slick-carousel>
+  </div>
+</div>

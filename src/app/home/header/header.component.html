@@ -1,0 +1,30 @@
+<div class="headerContainer">
+  <div class="logo">
+    <img src="../../assets/header/logo.png" alt="imgErr" />
+  </div>
+  <div class="search">
+    <input type="text" placeholder="Search Here" />
+    <button>Search</button>
+  </div>
+  <div class="navLinks">
+    <ul>
+      <li (click)="showDropDown()">
+        @if (username) { {{ username }} } @else { Login }
+      </li>
+      <li>Products</li>
+      <li>Cart</li>
+      <li>Orders</li>
+    </ul>
+    @if (DropDown) {
+
+    <div class="headerDropDown">
+      <span>Accounts</span>
+      <span>Wishlists</span>
+      <span>Orders</span>
+      <span>
+        <button>Logout</button>
+      </span>
+    </div>
+    }
+  </div>
+</div>

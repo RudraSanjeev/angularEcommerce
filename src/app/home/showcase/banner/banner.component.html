@@ -1,0 +1,36 @@
+<div class=".bannerContainer">
+  <ngx-slick-carousel
+    class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig"
+    (init)="slickInit($event)"
+    (breakpoint)="breakpoint($event)"
+    (afterChange)="afterChange($event)"
+    (beforeChange)="beforeChange($event)"
+  >
+    @for (slide of slides; track slide.img) {
+    <div ngxSlickItem class="slide">
+      <img src="{{ slide.img }}" alt="imgErr" width="90%" />
+      <!-- <div class="buttons">
+          <button (click)="slickModal.slickPrev()" style="z-index: 99999">
+            prev
+          </button>
+          <button (click)="slickModal.slickNext()">next</button>
+        </div> -->
+    </div>
+    }
+  </ngx-slick-carousel>
+
+  <!-- <button (click)="addSlide()">Add</button>
+    <button (click)="removeSlide()">Remove</button>
+    <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
+    <button (click)="slickModal.unslick()">unslick</button> -->
+  <!-- <div class="buttons">
+      <button (click)="slickModal.slickPrev()" style="z-index: 99999">
+        prev
+      </button>
+      <button (click)="slickModal.slickNext()">next</button>
+    </div> -->
+
+  <!-- <div>lorem500</div> -->
+</div>

@@ -1,0 +1,22 @@
+<div class="loginContainer">
+  <div class="loginWrapper">
+    <h3>Login</h3>
+    <span class="loginWrapperItem">
+      <label for="Email">Email</label>
+      <input type="text" [(ngModel)]="email" />
+    </span>
+    <span class="loginWrapperItem">
+      <label for="Password">Password</label>
+      <input type="password" [(ngModel)]="password" />
+    </span>
+    @if (error) {
+
+    <small style="color: red; font-weight: 500; text-align: center">{{
+      error
+    }}</small>
+    }
+    <span class="loginWrapperItem">
+      <button (click)="login()">Login</button>
+    </span>
+  </div>
+</div>

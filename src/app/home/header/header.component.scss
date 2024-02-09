@@ -1,0 +1,120 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+
+  .logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100px;
+    width: 50px;
+    background: transparent;
+    // background: orange;
+    img {
+      width: 50%;
+      height: 100%;
+      object-fit: contain;
+      background: transparent;
+    }
+  }
+  .search {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      background: transparent;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      cursor: pointer;
+      &:focus {
+        border-color: skyblue;
+      }
+    }
+
+    input {
+      border: 1px solid #ccc;
+      border-right: none;
+      outline: none;
+      padding: 10px;
+      width: 80%;
+      border-radius: 10px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      &:focus {
+        border-color: skyblue;
+      }
+    }
+  }
+  .navLinks {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      color: #333;
+      li {
+        text-transform: capitalize;
+        &:first-child {
+          font-weight: 500;
+        }
+        cursor: pointer;
+        &:hover {
+          color: #000;
+          // border-bottom: 1px solid red;
+          font-weight: 500;
+        }
+      }
+    }
+    .headerDropDown {
+      display: flex;
+      flex-direction: column;
+      color: #222;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px 10px;
+      gap: 10px;
+      width: fit-content;
+      height: fit-content;
+
+      position: absolute;
+      top: 70%;
+      right: 12%;
+      z-index: 9;
+      background: #f1f1f1;
+      // display: none;
+
+      span {
+        width: 110px;
+        text-align: center;
+
+        &:hover {
+          font-weight: 500;
+          cursor: pointer;
+        }
+        button {
+          padding: 5px;
+          width: 90%;
+          border: 1px solid #ccc;
+          background: gold;
+          cursor: pointer;
+          font-size: large;
+          font-weight: 400;
+          border-radius: 5px;
+          &:hover {
+            background: rgb(239, 204, 6);
+          }
+        }
+      }
+    }
+  }
+}
