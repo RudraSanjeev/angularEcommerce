@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface Product {
-  map(arg0: (item: any) => { img: any; title: any; desc: any }): unknown;
-  forEach(arg0: (element: any) => void): any;
+  // map(arg0: (item: any) => { img: any; title: any; desc: any }): unknown;
+  // forEach(arg0: (element: any) => void): any;z
+  title: string;
   category: string[];
   color: string[];
   currency: string;

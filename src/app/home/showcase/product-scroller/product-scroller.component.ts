@@ -19,7 +19,7 @@ export class ProductScrollerComponent {
     this.productService.getAllProducts().subscribe({
       next: (response: Product) => {
         this.slides = response;
-        console.log(this.slides[0].title);
+        // console.log(this.slides[0].title);
       },
       error: (err: any) => {
         console.log(err);
@@ -27,39 +27,6 @@ export class ProductScrollerComponent {
     });
   }
 
-  // slides = [
-  //   {
-  //     img: '../../../../assets/products/mobiles/1/1.jpg',
-  //     title: 'first product title',
-  //     desc: 'first product desc',
-  //   },
-
-  //   {
-  //     img: '../../../../assets/products/pc/1/1.webp',
-  //     title: 'second product title',
-  //     desc: 'second product desc',
-  //   },
-  //   {
-  //     img: '../../../../assets/products/mobiles/2/1.jpg',
-  //     title: 'third product title',
-  //     desc: 'third product desc',
-  //   },
-  //   {
-  //     img: '../../../../assets/products/shoes/1/3.jpg',
-  //     title: 'fourth product title',
-  //     desc: 'fourth product desc',
-  //   },
-  //   {
-  //     img: '../../../../assets/products/mobiles/4/1.jpg',
-  //     title: 'fifth product title',
-  //     desc: 'fifth product desc',
-  //   },
-  //   {
-  //     img: '../../../../assets/products/mobiles/3/1.jpg',
-  //     title: 'sixth product title',
-  //     desc: 'sixth product desc',
-  //   },
-  // ];
   slideConfig = {
     slidesToShow: 4,
     slidesToScroll: 2,
@@ -75,20 +42,25 @@ export class ProductScrollerComponent {
   //   this.slides.length = this.slides.length - 1;
   // }
 
-  slickInit(e: any) {
-    console.log('slick initialized');
-    // console.log(e)
-  }
+  // slickInit(e: any) {
+  //   console.log('slick initialized');
+  //   // console.log(e)
+  // }
 
-  breakpoint(e: any) {
-    console.log('breakpoint');
-  }
+  // breakpoint(e: any) {
+  //   console.log('breakpoint');
+  // }
 
-  afterChange(e: any) {
-    console.log('afterChange');
-  }
+  // afterChange(e: any) {
+  //   console.log('afterChange');
+  // }
 
-  beforeChange(e: any) {
-    console.log('beforeChange');
-  }
+  // beforeChange(e: any) {
+  //   console.log('beforeChange');
+  // }
 }
+
+// (init)="slickInit($event)"
+// (breakpoint)="breakpoint($event)"
+// (afterChange)="afterChange($event)"
+// (beforeChange)="beforeChange($event)"

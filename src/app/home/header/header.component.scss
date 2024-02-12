@@ -64,14 +64,29 @@
       color: #333;
       li {
         text-transform: capitalize;
+        position: relative;
         &:first-child {
           font-weight: 500;
         }
         cursor: pointer;
         &:hover {
           color: #000;
-          // border-bottom: 1px solid red;
           font-weight: 500;
+        }
+        .cartCounter {
+          position: absolute;
+          top: -9px;
+          left: 25px;
+          background: rgba(255, 0, 0, 0.822);
+          padding: 2px;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 50%;
+          font-size: small;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: -1;
         }
       }
     }

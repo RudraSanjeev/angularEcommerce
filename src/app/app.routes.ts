@@ -3,6 +3,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { CartComponent } from './cart/cart.component';
 
 export const routes: Routes = [
   {
@@ -19,5 +20,10 @@ export const routes: Routes = [
     path: 'products/:productId',
     title: 'product',
     component: SingleProductComponent,
+  },
+  {
+    path: 'carts',
+    component: CartComponent,
+    title: 'Cart',
   },
 ];

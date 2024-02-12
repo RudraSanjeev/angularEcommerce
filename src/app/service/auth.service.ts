@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
+import { CartService } from '../cart/cart.service';
 
 interface LoginResponse {
   _id: string;
@@ -21,9 +22,16 @@ interface LoginResponse {
 export class AuthService {
   private API_URI = `http://localhost:8000/api/auth`;
   isLoggedIn = new EventEmitter<boolean>();
-  username: string = '';
-  constructor(private http: HttpClient) {}
+  cartCounter: number;
+  constructor(private http: HttpClient, private cartService: CartService) {}
+
   login(email: string, password: string) {
+    this.cartService.getAllCarts().subscribe({
+      next: (res) => {
+        this.cartCounter = res.items.length;
+        localStorage.setItem('cartCounter', JSON.stringify(res.items.length));
+      },
+    });
     return this.http
       .post<LoginResponse>(this.API_URI + '/login', { email, password })
       .pipe(
@@ -34,5 +42,9 @@ export class AuthService {
           this.isLoggedIn.emit(true);
         })
       );
+  }
+
+  logout() {
+    window.localStorage.clear();
   }
 }

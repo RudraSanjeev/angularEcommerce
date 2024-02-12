@@ -37,20 +37,25 @@ export class BannerComponent {
   //   this.slides.length = this.slides.length - 1;
   // }
 
-  slickInit(e: any) {
-    console.log('slick initialized');
-    // console.log(e)
-  }
+  // slickInit(e: any) {
+  //   console.log('slick initialized');
+  //   // console.log(e)
+  // }
 
-  breakpoint(e: any) {
-    console.log('breakpoint');
-  }
+  // breakpoint(e: any) {
+  //   console.log('breakpoint');
+  // }
 
-  afterChange(e: any) {
-    console.log('afterChange');
-  }
+  // afterChange(e: any) {
+  //   console.log('afterChange');
+  // }
 
-  beforeChange(e: any) {
-    console.log('beforeChange');
-  }
+  // beforeChange(e: any) {
+  //   console.log('beforeChange');
+  // }
 }
+
+// (init)="slickInit($event)"
+// (breakpoint)="breakpoint($event)"
+// (afterChange)="afterChange($event)"
+// (beforeChange)="beforeChange($event)"

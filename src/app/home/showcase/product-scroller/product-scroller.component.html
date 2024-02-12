@@ -6,10 +6,6 @@
       class="carousel"
       #slickModal="slick-carousel"
       [config]="slideConfig"
-      (init)="slickInit($event)"
-      (breakpoint)="breakpoint($event)"
-      (afterChange)="afterChange($event)"
-      (beforeChange)="beforeChange($event)"
     >
       <ng-container>
         @for (slide of slides; track slide.img[0]) {
