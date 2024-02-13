@@ -1,0 +1,36 @@
+<div class="singleCart">
+  <div class="singleCartImgBox">
+    <img [src]="img" alt="imgErr" />
+  </div>
+  <div class="singleCartInfoBox">
+    <span class="singleCartInfoBoxItem desc">
+      {{ desc }}
+    </span>
+    <span class="singleCartInfoBoxItem inStock">
+      <small [ngStyle]="{ color: inStock ? 'green' : 'red' }"
+        >@if (inStock) {inStock} @else {Out of stock}</small
+      >
+    </span>
+    <span class="singleCartInfoBoxItem">
+      <div class="singleCartinfoBoxItemActionButton">
+        <label for="Qty">Qty: </label>
+        <select name="Qty" id="Qty">
+          <option [value]="quantity" selected hidden>{{ quantity }}</option>
+          @for (item of [1,2,3,4]; track $index) { @if (item !== quantity) {
+          <option [value]="item">{{ item }}</option>
+
+          } }
+        </select>
+
+        <span class="singleCartInfoBoxItemActionButttonUpdate"> Update </span>
+        <span class="singleCartInfoBoxItemActionButtonDelete"> Delete </span>
+      </div>
+    </span>
+  </div>
+  <div class="singleCartPriceBox">
+    <span class="singleCartPriceBoxItem discount"> 55% OFF </span>
+    <span class="singleCartPriceBoxItem dealOfTheDay"> Deal of the day </span>
+    <span class="singleCartPriceBoxItem price"> $ {{ price }} </span>
+    <span class="singleCartPriceBoxItem crossPrice"> $: 564645 </span>
+  </div>
+</div>

@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { Cart, CartService } from './cart.service';
+import { CartService } from './cart.service';
+import { SingleCartComponent } from './single-cart/single-cart.component';
+import { ProceedToPayComponent } from './proceed-to-pay/proceed-to-pay.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [],
+  imports: [SingleCartComponent, ProceedToPayComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
-  cart: Cart;
-
+  cart: any;
+  cartTotalItems: number;
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
@@ -20,9 +22,12 @@ export class CartComponent {
 
   getAllCarts() {
     this.cartService.getAllCarts().subscribe({
-      next: (response: Cart) => {
+      next: (response: any) => {
         this.cart = response;
-        console.log(this.cart);
+        // console.log(this.cart);
+        this.cart.items.forEach((element) => {
+          this.cartTotalItems += element.quantity;
+        });
       },
       error: (err: any) => {
         console.log(err);
@@ -31,4 +36,8 @@ export class CartComponent {
 
     // console.log(localStorage.getItem('cartCounter'));
   }
+
+  // updateCart(productId: string, quantity: number) {
+  //   this.cartService.updateCart(productId, quantity);
+  // }
 }

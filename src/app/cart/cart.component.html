@@ -1,1 +1,32 @@
-<p>cart works!</p>
+<div class="cartContainer">
+  <div class="cartContainerHeading">
+    <h3>Shopping Cart</h3>
+    <small>Price</small>
+  </div>
+  <!-- singleCart -->
+  <div class="cartWrapper">
+    <div class="singleCartWrapper">
+      @for (item of cart?.items; track $index) {
+
+      <SingleCart
+        class="singleCart"
+        [img]="item.productId.img[0]"
+        [desc]="item.productId.desc"
+        [price]="item.productId.price"
+        [inStock]="item.productId.inStock"
+        [quantity]="item.quantity"
+      />
+      }
+    </div>
+    <ProceedToPay
+      class="proceedToPay"
+      [items]="cart.items.length"
+      [subTotal]="cart?.totalPrice"
+    />
+  </div>
+
+  <div class="subTotal">
+    <h3>Sub Total:</h3>
+    <h3>$ {{ cart?.totalPrice }}</h3>
+  </div>
+</div>

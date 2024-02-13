@@ -1,0 +1,38 @@
+.proceedToPayContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  //   background: red;
+
+  max-height: fit-content;
+  padding: 10px;
+  position: relative;
+  //   background: red;
+
+  .proceedToPayItem {
+    font-size: large;
+    color: #222;
+    font-weight: 400;
+  }
+  .subTotal {
+    font-size: 1.2rem;
+    color: #222;
+    font-weight: 500;
+  }
+  button {
+    background: gold;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    padding: 5px;
+    width: 100%;
+    font-weight: 400;
+    font-size: small;
+    &:hover {
+      background: rgb(228, 194, 4);
+      cursor: pointer;
+    }
+  }
+}

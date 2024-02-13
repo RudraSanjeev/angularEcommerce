@@ -1,0 +1,122 @@
+.singleCart {
+  display: flex;
+  // flex-direction: column;
+  background: #fef3f3;
+  align-items: start;
+  justify-content: space-between;
+  margin: 10px 0;
+  width: 95%;
+
+  .singleCartImgBox {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex: 0.5;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .singleCartInfoBox {
+    // background: yellow;
+    flex: 1;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    flex-direction: column;
+    padding: 10px;
+    &.desc {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #222;
+    }
+    &.inStock {
+      font-size: small;
+      font-weight: bold;
+    }
+
+    .singleCartinfoBoxItemActionButton {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      label {
+        color: #222;
+        font-size: medium;
+        font-weight: 500;
+      }
+      select {
+        padding: 5px;
+        border: 1px solid #ccc;
+        background: #f1f1f1;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+      }
+      .singleCartInfoBoxItemActionButttonUpdate {
+        border-left: 1px solid #222;
+        padding: 5px;
+        font-size: small;
+        color: rgb(24, 154, 240);
+        font-weight: 500;
+        &:hover {
+          color: red;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+      .singleCartInfoBoxItemActionButtonDelete {
+        border-left: 1px solid #222;
+        padding: 5px;
+        font-size: small;
+        color: rgb(24, 154, 240);
+        font-weight: 500;
+        &:hover {
+          color: red;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .singleCartPriceBox {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+    padding: 10px 10px;
+    .singleCartPriceBoxItem {
+      color: #222;
+      font-weight: bold;
+
+      &.discount {
+        background: #cc0c39;
+        font-size: small;
+        color: #fff;
+        padding: 5px 8px;
+        border-radius: 2px;
+      }
+      &.dealOfTheDay {
+        color: #cc0c39;
+        font-size: small;
+      }
+      &.crossPrice {
+        text-decoration: line-through;
+        font-weight: 300;
+        color: #777;
+        font-size: small;
+      }
+    }
+  }
+}
