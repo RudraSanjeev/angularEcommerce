@@ -23,7 +23,7 @@ export class ProductscrollerService {
   private API_URI = `http://localhost:8000/api/products/`;
   constructor(private http: HttpClient) {}
   getAllProducts() {
-    return this.http.get<Product>(this.API_URI + 'all');
+    return this.http.get<Product>(this.API_URI);
   }
 
   getSingleProduct(productId: string) {

@@ -1,5 +1,5 @@
 <div class="headerContainer">
-  <div class="logo">
+  <div class="logo" [routerLink]="'/'">
     <img src="../../assets/header/logo.png" alt="imgErr" />
   </div>
   <div class="search">
@@ -12,20 +12,20 @@
         {{ username || "Login" }}
       </li>
       <li>Products</li>
-      <li>
+      <li routerLink="/carts">
         Cart @if (cartCounter> 0) {
 
         <span class="cartCounter">{{ cartCounter }}</span>
         }
       </li>
-      <li>Orders</li>
+      <li routerLink="/orders">Orders</li>
     </ul>
     @if (DropDown) {
 
     <div class="headerDropDown">
       <span>Accounts</span>
       <span>Wishlists</span>
-      <span>Orders</span>
+      <span routerLink="/orders">Orders</span>
       <span>
         <button (click)="logout()">Logout</button>
       </span>

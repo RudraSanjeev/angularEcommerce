@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import e from 'express';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 
 export interface Cart {
@@ -23,7 +22,7 @@ interface CartItem {
   providedIn: 'root',
 })
 export class CartService {
-  private API_URI = `http://localhost:8000/api/carts`;
+  private API_URI = `http://localhost:8000/api/carts/`;
   // counter: number = 0;
 
   constructor(
@@ -90,12 +89,37 @@ export class CartService {
       )
       .pipe(
         tap((res) => {
-          const cartCounter =
-            this.document.defaultView?.localStorage?.getItem('cartCounter');
-          this.document.defaultView?.localStorage?.setItem(
-            'cartCounter',
-            JSON.stringify(JSON.parse(cartCounter) - quantity)
-          );
+          this.getAllCarts().subscribe({
+            next: () => {
+              console.log('getAllCarts invoked ');
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+          });
+        })
+      );
+  }
+
+  deleteCart(productId: string) {
+    return this.http
+      .delete(this.API_URI + productId, {
+        headers: {
+          token: `Bearer ${this.document.defaultView?.localStorage?.getItem(
+            'accessToken'
+          )}`,
+        },
+      })
+      .pipe(
+        tap((res) => {
+          this.getAllCarts().subscribe({
+            next: () => {
+              console.log('delete getAllCart invoked !');
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+          });
         })
       );
   }

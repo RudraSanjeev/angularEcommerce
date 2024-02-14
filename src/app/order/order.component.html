@@ -1,0 +1,40 @@
+<div class="cartContainer">
+  <div class="cartContainerHeading">
+    <h3>Your Orders</h3>
+    <small>Price</small>
+  </div>
+  <!-- singleOrder -->
+  <!-- @if (order?.items?.length ==0) {
+  <div class="cartItemsEmpty">
+    <h1>Your Order is empty !</h1>
+    <button [routerLink]="'/'">Shop now</button>
+  </div>
+  } @else { -->
+
+  <div class="cartWrapper">
+    <div class="singleCartWrapper">
+      @for (item of order; track $index) {
+
+      <SingleOrder
+        class="singleCart"
+        [orderItems]="item.items"
+        [orderStatus]="item.orderStatus"
+        [total]="item.total"
+      />
+      }
+    </div>
+    <!-- <ProceedToPay
+      class="proceedToPay"
+      [items]="cart?.items?.length"
+      [subTotal]="receivedSubTotal"
+    /> -->
+  </div>
+  <!-- } -->
+  <!-- @if (cart?.items !=0) {
+  <div class="subTotal">
+    <h3>Sub Total:</h3>
+    <h3>$ {{ receivedSubTotal }}</h3>
+  </div>
+
+  } -->
+</div>

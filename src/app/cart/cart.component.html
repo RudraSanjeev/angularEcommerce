@@ -4,29 +4,42 @@
     <small>Price</small>
   </div>
   <!-- singleCart -->
+  @if (cart?.items ==0) {
+  <div class="cartItemsEmpty">
+    <h1>Your cart is empty !</h1>
+    <button [routerLink]="'/'">Shop now</button>
+  </div>
+  } @else {
+
   <div class="cartWrapper">
     <div class="singleCartWrapper">
       @for (item of cart?.items; track $index) {
 
       <SingleCart
         class="singleCart"
+        (subTotalEvent)="receiveSubTotal($event)"
+        (deleteProductIdEvent)="receiveDeletedProductId($event)"
+        [productId]="item?.productId?._id"
         [img]="item.productId.img[0]"
         [desc]="item.productId.desc"
         [price]="item.productId.price"
         [inStock]="item.productId.inStock"
-        [quantity]="item.quantity"
+        [quantity]="item?.quantity"
+        [subTotal]="receivedSubTotal"
       />
       }
     </div>
     <ProceedToPay
       class="proceedToPay"
-      [items]="cart.items.length"
-      [subTotal]="cart?.totalPrice"
+      [items]="cart?.items?.length"
+      [subTotal]="receivedSubTotal"
     />
   </div>
-
+  } @if (cart?.items !=0) {
   <div class="subTotal">
     <h3>Sub Total:</h3>
-    <h3>$ {{ cart?.totalPrice }}</h3>
+    <h3>$ {{ receivedSubTotal }}</h3>
   </div>
+
+  }
 </div>

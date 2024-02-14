@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { RouterModule } from '@angular/router';
 @Component({
@@ -13,24 +13,36 @@ export class HeaderComponent {
   username: string | null = '';
   DropDown: boolean = false;
   cartCounter: number = 0;
-  constructor(private authService: AuthService) {}
+  // user: string = '';
+  // constructor(private authService: AuthService) {}
 
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private authService: AuthService
+  ) {}
   showDropDown() {
     if (this.username) {
       this.DropDown = !this.DropDown;
     }
   }
 
-  // async ngOnInit() {
-  //   this.username = await localStorage.getItem('username');
-  // }
   ngDoCheck() {
-    this.username = localStorage.getItem('username').split(' ')[0];
+    this.username = this.document.defaultView?.localStorage
+      ?.getItem('username')
+      ?.split(' ')[0];
+    const counter =
+      this.document.defaultView?.localStorage?.getItem('cartCounter');
+    if (counter) {
+      this.cartCounter = JSON.parse(counter);
+    }
+
+    // console.log(this.username);
   }
 
   logout() {
     this.username = '';
     this.authService.logout();
-    console.log('logout');
+    this.DropDown = !this.DropDown;
+    // console.log('logout');
   }
 }

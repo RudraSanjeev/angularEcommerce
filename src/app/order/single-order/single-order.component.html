@@ -1,0 +1,49 @@
+<div class="singleOrder">
+  <div class="singleOrderImgBox">
+    <img [src]="orderItems[0].productId.img[0]" alt="imgErr" />
+  </div>
+  <div class="singleOrderInfoBox">
+    <span class="desc">
+      {{ orderItems[0].productId.title }}
+    </span>
+
+    <span class="singleOrdertInfoBoxItem">
+      <!-- <div class="singleOrderInfoBoxItemActionButton"> -->
+      <!-- <label for="Qty">Qty: </label> -->
+      <!-- <select name="Qty" id="Qty">
+          <option [value]="quantity" selected hidden>{{ quantity }}</option>
+          @for (item of [1,2,3,4]; track $index) { @if (item !== quantity) {
+          <option [value]="item" #selectedValue>{{ item }}</option>
+
+          } }
+        </select> -->
+
+      <!-- <span
+          class="singleCartInfoBoxItemActionButttonUpdate"
+          (click)="updateCart()"
+        >
+          Update
+        </span>
+        <span
+          class="singleCartInfoBoxItemActionButtonDelete"
+          (click)="deleteCart()"
+        >
+          Delete
+        </span> -->
+      <!-- </div> -->
+      Qty: {{ orderItems[0].quantity }}
+    </span>
+
+    <span class="singleOrdertInfoBoxItem">
+      Price: {{ orderItems[0].productId.price }}
+    </span>
+  </div>
+  <div class="singleOrderPriceBox">
+    <span class="singleOrderPriceBoxItem discount"> 55% OFF </span>
+    <span class="singleOrderPriceBoxItem dealOfTheDay"> Deal of the day </span>
+    <span class="singleOrderPriceBoxItem price">
+      $ {{ orderItems[0].productId.price }}
+    </span>
+    <span class="singleOrderPriceBoxItem crossPrice"> $: 564645 </span>
+  </div>
+</div>

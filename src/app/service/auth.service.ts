@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 import { CartService } from '../cart/cart.service';
 
 interface LoginResponse {
@@ -25,13 +25,29 @@ export class AuthService {
   cartCounter: number;
   constructor(private http: HttpClient, private cartService: CartService) {}
 
+  // login(email: string, password: string) {
+  //   this.cartService.getAllCarts().subscribe({
+  //     next: (res) => {
+  //       this.cartCounter = res.items.length;
+  //       localStorage.setItem('cartCounter', JSON.stringify(res.items.length));
+  //     },
+  //     error: (err: any) => {
+  //       console.log(err);
+  //     },
+  //   });
+  //   return this.http
+  //     .post<LoginResponse>(this.API_URI + '/login', { email, password })
+  //     .pipe(
+  //       tap((res) => {
+  //         localStorage.setItem('accessToken', res.accessToken);
+  //         localStorage.setItem('userId', res._id);
+  //         localStorage.setItem('username', res.fullName);
+  //         this.isLoggedIn.emit(true);
+  //       })
+  //     );
+  // }
+
   login(email: string, password: string) {
-    this.cartService.getAllCarts().subscribe({
-      next: (res) => {
-        this.cartCounter = res.items.length;
-        localStorage.setItem('cartCounter', JSON.stringify(res.items.length));
-      },
-    });
     return this.http
       .post<LoginResponse>(this.API_URI + '/login', { email, password })
       .pipe(
@@ -40,8 +56,29 @@ export class AuthService {
           localStorage.setItem('userId', res._id);
           localStorage.setItem('username', res.fullName);
           this.isLoggedIn.emit(true);
+        }),
+        finalize(() => {
+          this.updateCartCounter();
         })
       );
+  }
+
+  private updateCartCounter() {
+    this.cartService.getAllCarts().subscribe({
+      next: (res) => {
+        let totalQuantity = 0;
+        res.items.forEach((element) => {
+          totalQuantity += element.quantity;
+        });
+
+        this.cartCounter = totalQuantity;
+
+        localStorage.setItem('cartCounter', JSON.stringify(totalQuantity));
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 
   logout() {

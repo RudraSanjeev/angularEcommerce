@@ -1,7 +1,7 @@
 <div class="singleProductContainer">
   <div class="imgContainer">
     <div class="images">
-      @for (item of product.img; track $index) {
+      @for (item of product?.img; track $index) {
       <div
         class="singleImage"
         [ngStyle]="{ 'border-color': item === currImg ? 'skyblue' : '#ccc' }"
@@ -16,9 +16,9 @@
       </div>
     </div>
     <div class="productInfo">
-      <span class="title"> {{ product.title }}</span>
-      <span class="desc"> {{ product.desc }} </span>
-      <span class="price">Price: $ {{ product.price }} </span>
+      <span class="title"> {{ product?.title }}</span>
+      <span class="desc"> {{ product?.desc }} </span>
+      <span class="price">Price: $ {{ product?.price }} </span>
     </div>
     <div class="shippingInfo">
       <div class="addressInfo">

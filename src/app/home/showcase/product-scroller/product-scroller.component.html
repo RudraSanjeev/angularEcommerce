@@ -11,6 +11,7 @@
         @for (slide of slides; track slide.img[0]) {
         <div ngxSlickItem class="slide">
           <app-single-scroller-product
+            [routerLink]="'/products/' + slide._id"
             [img]="slide.img[0]"
             [title]="slide.title"
             [price]="slide.price"

@@ -2,11 +2,17 @@ import { Component } from '@angular/core';
 import { SingleScrollerProductComponent } from './single-scroller-product/single-scroller-product.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Product, ProductscrollerService } from './productscroller.service';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-scroller',
   standalone: true,
-  imports: [SingleScrollerProductComponent, SlickCarouselModule],
+  imports: [
+    SingleScrollerProductComponent,
+    SlickCarouselModule,
+    RouterLink,
+    RouterModule,
+  ],
   templateUrl: './product-scroller.component.html',
   styleUrl: './product-scroller.component.scss',
 })

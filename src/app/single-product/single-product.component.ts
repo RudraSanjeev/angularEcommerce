@@ -6,6 +6,9 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { ProductscrollerService } from '../home/showcase/product-scroller/productscroller.service';
 import { NgStyle } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -34,18 +37,32 @@ export class SingleProductComponent {
   product: Product;
   currImg: string;
   quantity: string = '1';
-  @Input() productId: string = '659cd6e37de1b5cd3efa1cef';
+  productId: string;
+  // testId$ = this.routes.params.pipe(map((p) => p['testId']));
   constructor(
     private productService: ProductscrollerService,
-    private cartService: CartService
+    private cartService: CartService,
+    private routes: ActivatedRoute
   ) {}
+
+  // this.routes.params.pipe(map((p) => p['productId'])).subscribe({
+  //   next: (res)=>{
+  //     this.productId = res;
+  //   }
+  // })
 
   setCurrentImg(img: string) {
     this.currImg = img;
   }
 
   ngOnInit() {
+    this.routes.params.pipe(map((p) => p['productId'])).subscribe((res) => {
+      this.productId = res;
+      // console.log(this.productId);
+    });
     this.getSingleProduct();
+    // this.setCurrentImg;
+    console.log(this.productId);
   }
 
   getSingleProduct() {
