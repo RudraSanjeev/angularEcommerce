@@ -1,0 +1,39 @@
+.sinlgeAddress {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  gap: 10px;
+  width: max-content;
+  .singleAddressItem {
+    color: #222;
+  }
+  .addressButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .addressButtonItem {
+      //   display: flex;
+      padding-right: 5px;
+      border-right: 1px solid #222;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      button {
+        background: transparent;
+        padding: 5px;
+        border: none;
+        color: #007185;
+        &:hover {
+          text-decoration: underline;
+          color: coral;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

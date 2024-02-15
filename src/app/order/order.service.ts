@@ -38,7 +38,7 @@ export class OrderService {
       },
     });
   }
-  addOrder(OrderData: { paymentMode: string }) {
+  addOrder(OrderData: { paymentMode: string }): Observable<any> {
     return this.http.post(this.API_URI, OrderData, {
       headers: {
         token: `Bearer ${this.document.defaultView?.localStorage?.getItem(

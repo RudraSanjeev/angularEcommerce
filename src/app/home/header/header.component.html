@@ -11,7 +11,7 @@
       <li (click)="showDropDown()" [routerLink]="username ? '/' : '/login'">
         {{ username || "Login" }}
       </li>
-      <li>Products</li>
+      <li routerLink="/address">Address</li>
       <li routerLink="/carts">
         Cart @if (cartCounter> 0) {
 
@@ -23,7 +23,7 @@
     @if (DropDown) {
 
     <div class="headerDropDown">
-      <span>Accounts</span>
+      <span>Address</span>
       <span>Wishlists</span>
       <span routerLink="/orders">Orders</span>
       <span>

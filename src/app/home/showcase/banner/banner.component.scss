@@ -81,30 +81,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  //   .buttons {
-  //     z-index: 999;
-  //     display: flex;
-  //     justify-content: space-between;
-  //     //   margin: auto;
-  //     align-items: center;
-  //     //   justify-content: center;
-  //     width: 100%;
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     z-index: 99;
-  //     background: transparent;
-  //     margin: auto;
-  //     button {
-  //       height: fit-content;
-  //       width: fit-content;
-  //       padding: 5px;
-  //       background: #f2f2f2c5;
-  //       border: 1px solid #ccc;
-  //       border-radius: 10px;
-  //     }
-  //   }
+  position: relative;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
+  width: 92%;
+  margin: -0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(-20%);
+  button {
+    width: fit-content;
+    height: fit-content;
+    background: #f3f3f3;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+  }
 }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [SlickCarouselModule],
+  imports: [SlickCarouselModule, MatIcon],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss',
 })

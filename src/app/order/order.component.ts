@@ -51,7 +51,7 @@ export class OrderComponent {
     this.orderService.getAllOrders().subscribe({
       next: (response: any) => {
         this.order = response;
-        console.log(this.order);
+        // console.log(this.order);
       },
       error: (err: any) => {
         console.log(err);

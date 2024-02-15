@@ -21,12 +21,19 @@
     <button (click)="removeSlide()">Remove</button>
     <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
     <button (click)="slickModal.unslick()">unslick</button> -->
-  <!-- <div class="buttons">
-      <button (click)="slickModal.slickPrev()" style="z-index: 99999">
-        prev
-      </button>
-      <button (click)="slickModal.slickNext()">next</button>
-    </div> -->
+  <div class="buttons">
+    <button
+      mat-mini-fab
+      extended
+      (click)="slickModal.slickPrev()"
+      style="z-index: 99999"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-mini-fab extended (click)="slickModal.slickNext()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
 
   <!-- <div>lorem500</div> -->
 </div>

@@ -1,0 +1,22 @@
+<div class="sinlgeAddress">
+  <span class="singleAddressItem">{{ address?.fullName }}</span>
+  <span class="singleAddressItem">{{ address.houseNo }}</span>
+  <span class="singleAddressItem"
+    >{{ address.houseNo }}, {{ address.state }}, {{ address.pincode }}</span
+  >
+  <span class="singleAddressItem">{{ address.country }}</span>
+  <span class="singleAddressItem"
+    >Phone Number: {{ address?.mobileNumber }}</span
+  >
+  <div class="addressButtons">
+    <span class="addressButtonItem">
+      <button>Edit</button>
+    </span>
+    <span class="addressButtonItem">
+      <button>Remove</button>
+    </span>
+    <span class="addressButtonItem">
+      <button>Set as Default</button>
+    </span>
+  </div>
+</div>

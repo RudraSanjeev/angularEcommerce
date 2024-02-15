@@ -11,7 +11,7 @@
         @for (slide of slides; track slide.img[0]) {
         <div ngxSlickItem class="slide">
           <app-single-scroller-product
-            [routerLink]="'/products/' + slide._id"
+            [routerLink]="'/products/' + slide?._id"
             [img]="slide.img[0]"
             [title]="slide.title"
             [price]="slide.price"
@@ -20,5 +20,19 @@
         }
       </ng-container>
     </ngx-slick-carousel>
+
+    <div class="buttons">
+      <button
+        mat-mini-fab
+        extended
+        (click)="slickModal.slickPrev()"
+        style="z-index: 99999"
+      >
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button mat-mini-fab extended (click)="slickModal.slickNext()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

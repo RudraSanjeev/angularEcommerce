@@ -17,7 +17,7 @@ export class SingleOrderComponent {
   @Input() total: number;
   @Input() orderItems: any[];
 
-  ngOnInit() {
-    console.log(this.orderItems[0].productId.img);
-  }
+  // ngOnInit() {
+  //   console.log(this.orderItems[0].productId.img);
+  // }
 }

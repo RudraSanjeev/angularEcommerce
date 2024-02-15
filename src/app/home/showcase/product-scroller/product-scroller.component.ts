@@ -3,6 +3,7 @@ import { SingleScrollerProductComponent } from './single-scroller-product/single
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Product, ProductscrollerService } from './productscroller.service';
 import { RouterLink, RouterModule } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-product-scroller',
@@ -12,6 +13,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     SlickCarouselModule,
     RouterLink,
     RouterModule,
+    MatIcon,
   ],
   templateUrl: './product-scroller.component.html',
   styleUrl: './product-scroller.component.scss',
@@ -26,6 +28,8 @@ export class ProductScrollerComponent {
       next: (response: Product) => {
         this.slides = response;
         // console.log(this.slides[0].title);
+
+        console.log(this.slides[0]._id);
       },
       error: (err: any) => {
         console.log(err);

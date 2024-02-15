@@ -1,0 +1,10 @@
+<div class="addressContainer">
+  <h3>Your Addresses</h3>
+  <div class="singleAddressWrapper">
+    <app-add-new-address></app-add-new-address>
+    @for (address of addresses; track $index) {
+
+    <app-single-adress [address]="address"></app-single-adress>
+    }
+  </div>
+</div>

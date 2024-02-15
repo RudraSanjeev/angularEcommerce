@@ -1,0 +1,17 @@
+.addNewAddressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ccc;
+  border-style: dashed;
+  width: 235px;
+  height: 211px;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  span {
+    font-size: 10rem;
+    font-weight: 300;
+    color: #999;
+  }
+}
