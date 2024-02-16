@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { SingleAdressComponent } from './single-adress/single-adress.component';
 import { Address, AddressService } from './address.service';
 import { AddNewAddressComponent } from './add-new-address/add-new-address.component';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-address',
   standalone: true,
-  imports: [SingleAdressComponent, AddNewAddressComponent],
+  imports: [SingleAdressComponent, AddNewAddressComponent, RouterModule],
   templateUrl: './address.component.html',
   styleUrl: './address.component.scss',
 })
