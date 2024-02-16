@@ -24,29 +24,6 @@ export class AuthService {
   isLoggedIn = new EventEmitter<boolean>();
   cartCounter: number;
   constructor(private http: HttpClient, private cartService: CartService) {}
-
-  // login(email: string, password: string) {
-  //   this.cartService.getAllCarts().subscribe({
-  //     next: (res) => {
-  //       this.cartCounter = res.items.length;
-  //       localStorage.setItem('cartCounter', JSON.stringify(res.items.length));
-  //     },
-  //     error: (err: any) => {
-  //       console.log(err);
-  //     },
-  //   });
-  //   return this.http
-  //     .post<LoginResponse>(this.API_URI + '/login', { email, password })
-  //     .pipe(
-  //       tap((res) => {
-  //         localStorage.setItem('accessToken', res.accessToken);
-  //         localStorage.setItem('userId', res._id);
-  //         localStorage.setItem('username', res.fullName);
-  //         this.isLoggedIn.emit(true);
-  //       })
-  //     );
-  // }
-
   login(email: string, password: string) {
     return this.http
       .post<LoginResponse>(this.API_URI + '/login', { email, password })

@@ -1,0 +1,13 @@
+<form id="payment-form" (submit)="handleSubmit($event)">
+  <div id="payment-element" #cardElement>
+    <!-- Stripe Card Element will be rendered here -->
+  </div>
+  <button [disabled]="isLoading">Pay now</button>
+  <div
+    *ngIf="message"
+    class="message"
+    [ngStyle]="{ color: message.name && message.type ? 'green' : 'red' }"
+  >
+    {{ message.name }}
+  </div>
+</form>

@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class CartComponent {
   cart: any;
-  cartTotalItems: number;
+  cartTotalItems: number = 0;
   receivedSubTotal: number;
   receivedProductId: string;
   receiveSubTotal($event: string) {
@@ -43,11 +43,17 @@ export class CartComponent {
     // console.log(this.cartCounter);
   }
 
-  ngOnChanges() {
-    if (this.receivedSubTotal) {
-      console.log(this.receiveSubTotal);
-    }
-  }
+  // ngOnChanges() {
+  //   // if (this.receivedSubTotal) {
+  //   //   console.log(this.receiveSubTotal);
+  //   //   console.log(this.cart.items);
+  //   // }
+  //   // const cartCounter =
+  //   //   this.document.defaultView?.localStorage?.getItem('cartCounter');
+  //   // if (!cartCounter) {
+  //   //   this.cart.items = [];
+  //   // }
+  // }
 
   getAllCarts() {
     this.cartService.getAllCarts().subscribe({
@@ -61,6 +67,7 @@ export class CartComponent {
       },
       error: (err: any) => {
         console.log(err);
+        this.cartTotalItems = 0;
       },
     });
 

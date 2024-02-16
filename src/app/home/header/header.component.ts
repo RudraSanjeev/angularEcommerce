@@ -25,6 +25,9 @@ export class HeaderComponent {
       this.DropDown = !this.DropDown;
     }
   }
+  hideDropDown() {
+    this.DropDown = false;
+  }
 
   ngDoCheck() {
     this.username = this.document.defaultView?.localStorage
@@ -34,9 +37,9 @@ export class HeaderComponent {
       this.document.defaultView?.localStorage?.getItem('cartCounter');
     if (counter) {
       this.cartCounter = JSON.parse(counter);
+    } else {
+      this.cartCounter = 0;
     }
-
-    // console.log(this.username);
   }
 
   logout() {

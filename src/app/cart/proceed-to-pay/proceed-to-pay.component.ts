@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'ProceedToPay',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './proceed-to-pay.component.html',
   styleUrl: './proceed-to-pay.component.scss',
 })

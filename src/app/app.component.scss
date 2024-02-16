@@ -1,13 +1,6 @@
-// .appContainer {
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   flex-direction: column;
-//   min-height: 100vh;
-//   // align-items: center;
-//   justify-content: space-between;
-// }
-/* header.component.scss */
+.appContainer {
+  min-height: 80vh;
+}
 
 /* Example styles */
 .header {
@@ -18,22 +11,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Ensure header appears above other content */
+  z-index: 1000;
 }
-
-/* Add more styles as needed */
-/* footer.component.scss */
-
-/* Example styles */
 .footer {
-  // background-color: #333;
-  // color: #fff;
-  // padding: 20px;
   position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Ensure footer appears above other content */
+  z-index: 1000;
 }
-
-/* Add more styles as needed */

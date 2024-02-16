@@ -8,25 +8,25 @@
   </div>
   <div class="navLinks">
     <ul>
-      <li (click)="showDropDown()" [routerLink]="username ? '/' : '/login'">
+      <li (click)="showDropDown()" [routerLink]="!username && '/login'">
         {{ username || "Login" }}
       </li>
-      <li routerLink="/address">Address</li>
-      <li routerLink="/carts">
+      <li routerLink="/address" (click)="hideDropDown()">Address</li>
+      <li routerLink="/carts" (click)="hideDropDown()">
         Cart @if (cartCounter> 0) {
 
         <span class="cartCounter">{{ cartCounter }}</span>
         }
       </li>
-      <li routerLink="/orders">Orders</li>
+      <li routerLink="/orders" (click)="hideDropDown()">Orders</li>
     </ul>
     @if (DropDown) {
 
     <div class="headerDropDown">
-      <span>Address</span>
-      <span>Wishlists</span>
-      <span routerLink="/orders">Orders</span>
-      <span>
+      <span (click)="hideDropDown()" routerLink="/address">Address</span>
+      <span (click)="hideDropDown()">Wishlists</span>
+      <span routerLink="/orders" (click)="hideDropDown()">Orders</span>
+      <span (click)="hideDropDown()">
         <button (click)="logout()">Logout</button>
       </span>
     </div>

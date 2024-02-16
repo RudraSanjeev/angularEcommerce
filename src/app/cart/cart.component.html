@@ -4,7 +4,7 @@
     <small>Price</small>
   </div>
   <!-- singleCart -->
-  @if (cart?.items ==0) {
+  @if (cartTotalItems ===0) {
   <div class="cartItemsEmpty">
     <h1>Your cart is empty !</h1>
     <button [routerLink]="'/'">Shop now</button>
@@ -35,7 +35,7 @@
       [subTotal]="receivedSubTotal"
     />
   </div>
-  } @if (cart?.items !=0) {
+  } @if (cartTotalItems !==0) {
   <div class="subTotal">
     <h3>Sub Total:</h3>
     <h3>$ {{ receivedSubTotal }}</h3>

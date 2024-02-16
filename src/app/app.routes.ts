@@ -5,6 +5,8 @@ import { SingleProductComponent } from './single-product/single-product.componen
 import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
 import { AddressComponent } from './address/address.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AddressFormComponent } from './address/address-form/address-form.component';
 
 export const routes: Routes = [
   {
@@ -36,5 +38,15 @@ export const routes: Routes = [
     path: 'address',
     component: AddressComponent,
     title: 'address',
+  },
+  {
+    path: 'checkout',
+    component: PaymentComponent,
+    title: 'checkout',
+  },
+  {
+    path: 'address/new',
+    component: AddressFormComponent,
+    title: 'new address',
   },
 ];
